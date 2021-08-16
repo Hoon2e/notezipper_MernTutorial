@@ -10762,6 +10762,10 @@ fieldset:disabled .btn {
 .badge.bg-secondary {
     color: #555;
 }
+.badge.bg-success {
+    color: rgb(2, 124, 12);
+    color: white
+}
 a.list-group-item-success.active {
     background-color: #28b62c;
 }

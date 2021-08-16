@@ -7,11 +7,15 @@ import {
     Navbar,
     NavDropdown,
 } from 'react-bootstrap';
+import { Link, useHistory } from 'react-router-dom';
 const Header = () => {
+    const history = useHistory();
     return (
         <Navbar bg="primary" expand="lg" variant="dark">
             <Container>
-                <Navbar.Brand href="#home">React-Bootstrap</Navbar.Brand>
+                <Navbar.Brand>
+                    <Link to="/">React-Bootstrap</Link>
+                </Navbar.Brand>
                 <Navbar.Toggle aria-controls="basic-navbar-nav" />
                 <Navbar.Collapse id="basic-navbar-nav">
                     <Nav className="m-auto">
@@ -24,7 +28,9 @@ const Header = () => {
                         </Form>
                     </Nav>
                     <Nav className="me-auto">
-                        <Nav.Link href="#home">My Notes</Nav.Link>
+                        <Nav.Link>
+                            <Link to="/mynotes">My Notes</Link>
+                        </Nav.Link>
                         <NavDropdown
                             title="Piyush Agarwal"
                             id="basic-nav-dropdown"
@@ -33,7 +39,12 @@ const Header = () => {
                                 My Profile
                             </NavDropdown.Item>
                             <NavDropdown.Divider />
-                            <NavDropdown.Item href="#action/3.4">
+                            <NavDropdown.Item
+                                onClick={() => {
+                                    localStorage.removeItem('userInfo');
+                                    history.push('/');
+                                }}
+                            >
                                 Logout
                             </NavDropdown.Item>
                         </NavDropdown>
